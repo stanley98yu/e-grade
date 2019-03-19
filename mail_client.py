@@ -21,8 +21,6 @@ class SMTPServer:
                                   Hello {0},\n
                                   {1} Grade: {2}
                                   Feedback: {3}\n
-                                  For questions or regrades, please email stanley.yu@columbia.edu.\n
-                                  Have a good week!
                                   """.format(headers["First_Name"], num,
                                              headers[num],
                                              headers[num + "_Feedback"]))

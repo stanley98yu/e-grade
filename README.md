@@ -15,8 +15,8 @@ Python script for emailing grades and feedback directly from a Google Drive spre
 
 ## Troubleshooting
 
-* I receive an `smtplib.SMTPAuthenticationError` when trying to login to my Gmail account despite my account name and password being correct.
-    * Google has flagged this method of logging in as "less secure", so you must specifically grant access to less secure apps using this [link][less-secure]. Note that if your Gmail account uses 2-Step Verification, this setting is not available. In this case, you must generate an [App Password][app-pass]
+* I receive an `smtplib.SMTPAuthenticationError` when trying to login to my Gmail account despite my account name and password being correct. What's going on?
+    * Google has flagged this method of logging in as "less secure", so you must specifically grant access to less secure apps using this [link][less-secure]. Note that if your Gmail account uses 2-Step Verification, this setting is not available. In this case, you must generate an [App Password][app-pass].
 
 [app-pass]: https://support.google.com/accounts/answer/185833
 [gapi-console]: https://console.developers.google.com
