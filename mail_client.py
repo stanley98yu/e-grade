@@ -26,7 +26,7 @@ class SMTPServer:
                                              headers[num + "_Feedback"]))
         msg.set_content(content)
 
-        msg['Subject'] = num + " Grade"
+        msg['Subject'] = "[CSEE 3827] " + num + " Grade"
         msg['From'] = "CSEE 3827"
         msg['To'] = headers["Email"]
         self.smtp_server.send_message(msg)

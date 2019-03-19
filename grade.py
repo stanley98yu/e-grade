@@ -1,6 +1,7 @@
 import os.path
 import io
 import json
+import csv
 import pickle
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -74,11 +75,12 @@ def dl_sheet(service, sid):
     lines = resp.decode('utf-8').split('\r\n')
     headers = lines[0].split(',')
     tb = []
-    for l in lines[1:]:
-        student, tmp = {}, l.split(',')
+    tmp = csv.reader(lines[1:], skipinitialspace=True)
+    for r in tmp:
+        student = {}
         i = 0
         while i < len(headers):
-            student[headers[i]] = tmp[i]
+            student[headers[i]] = r[i]
             i += 1
         tb.append(student)
     return tb
@@ -90,7 +92,7 @@ if __name__ == '__main__':
 
     sid = find_sheet(service)
     tb = dl_sheet(service, sid)
-    
+
     smtp_serv = mail_client.SMTPServer()
     hw_num = input("Enter homework #: ")
     print("Sending emails...")
